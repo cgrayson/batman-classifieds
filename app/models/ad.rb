@@ -72,4 +72,5 @@ class Ad < ActiveRecord::Base
   validates :title, :presence => true
   validates :price, :presence => true, :numericality => { :greater_than => 0 }, :if => :set_price?
   validates :sale_type, :presence => true, :inclusion => ['fixed', 'free', 'trade']
+  validates :user, :presence => true
 end

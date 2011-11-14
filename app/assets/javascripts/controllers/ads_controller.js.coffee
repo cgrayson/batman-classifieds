@@ -24,7 +24,7 @@ class Classifieds.AdsController extends Batman.Controller
     @set 'ad', Classifieds.Ad.find parseInt(params.id, 10), (err) ->
       throw err if err
     @set 'otherAd', Classifieds.Ad.get('all')
-    @render source: 'ads/show.html'
+    @render source: 'ads/show'
     $('html, body').stop().animate(
       scrollTop: 0
     , 600,'easeInOutExpo')
