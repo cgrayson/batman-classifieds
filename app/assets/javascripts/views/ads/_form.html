@@ -11,7 +11,7 @@
   <div class="clearfix" data-addclass-error="ad.errors['title'].length">
     <label for="ad_title">I'm offering</label>
     <div class="input">
-      <input id="ad_title" name="ad[title]" data-bind="ad.title" size="30" type="text">
+      <input id="ad_title" name="ad[title]" data-bind="ad.title" size="30" type="text" class="span8">
     </div>
   </div>
 </fieldset>
@@ -23,12 +23,12 @@
       <input data-bind="ad.sale_type" checked="checked" id="ad_sale_type_fixed" name="ad[sale_type]" type="radio" value="fixed">
       <div class="input-prepend">
         <span class="add-on">$</span>
-        <input data-bind="ad.price" data-bind-disabled="ad.sale_type | equals 'fixed' | not" class="price prependedInput" id="ad_price" name="ad[price]" size="30" type="text">
+        <input data-bind="ad.price" data-source-disabled="ad.sale_type | equals 'fixed' | not" class="price prependedInput" id="ad_price" name="ad[price]" size="30" type="text">
       </div>
 
       <div id="best-offer" class="input" data-addclass-active="ad.best_offer">
         <span class="add-on">
-          <input data-bind="ad.best_offer" data-bind-disabled="ad.sale_type | equals 'fixed' | not" id="ad_best_offer" name="ad[best_offer]" type="checkbox">
+          <input data-bind="ad.best_offer" data-source-disabled="ad.sale_type | equals 'fixed' | not" id="ad_best_offer" name="ad[best_offer]" type="checkbox">
         </span>
         <span>
           <label for="ad_best_offer">Or for best offer</label>
@@ -62,7 +62,7 @@
   <div class="clearfix " data-addclass-error="ad.errors['description'].length">
     <label for="ad_description">Description</label>
     <div class="input">
-      <textarea data-bind="ad.description" cols="40" id="ad_description" name="ad[description]" rows="20"></textarea>
+      <textarea data-bind="ad.description" cols="40" id="ad_description" name="ad[description]" rows="20" class="span8"></textarea>
     </div>
   </div>
 </fieldset>

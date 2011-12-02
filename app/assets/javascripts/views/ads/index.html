@@ -8,8 +8,8 @@
     <h2 data-bind="'listing' | pluralize ads.length | prepend 'Showing '"></h2>
 
     <ul id="listings">
-      <li data-foreach-ad="ads" class="ad row">
-        <div data-partial="ads/_ad"></div>
+      <li data-foreach-ad="ads">
+        <div data-partial="ads/_ad" class="ad row"></div>
       </li>
     </ul>
 

@@ -12,13 +12,15 @@ gem 'paperclip'
 gem 'delayed_paperclip'
 gem 'aws-s3'
 gem 'json'
-gem 'jquery-rails'
 gem 'rails_autolink'
+gem 'jquery-rails'
 gem 'batman-rails'
+#gem 'css-bootstrap-rails'
+gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
+                              :git => 'git://github.com/anjlab/bootstrap-rails.git'
 gem 'heroku'
 
 group :assets do
-  gem 'less', "2.0.6"
   gem 'sass-rails', "  ~> 3.1.0"
   gem 'coffee-rails', "~> 3.1.0"
   gem 'uglifier'
