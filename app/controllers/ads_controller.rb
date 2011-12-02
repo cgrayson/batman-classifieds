@@ -12,7 +12,7 @@ class AdsController < ApplicationController
       query.active
     end
 
-    @ads = query.includes(:images).order('id DESC')
+    @ads = query.includes(:images, :user).order('id DESC')
     respond_with @ads
   end
 
