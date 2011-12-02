@@ -21,7 +21,7 @@
       <form data-formfor-message="ad.message" data-event-submit="sendMessage">
         <div class="alert-message success" data-showif="messageSendSuccess.length" data-bind="messageSendSuccess" data-mixin="animation"></div>
         <div id="error-explanation" class="alert-message block-message error" data-showif="message.errors.length">
-          <p><strong><span data-bind="message.errors.length"></span> <span data-bind="'error' | pluralize newAdErrorsLength"></span> prevented this message from being sent:</strong></p>
+          <p><strong><span data-bind="message.errors.length"></span> <span data-bind="'error' | pluralize message.errors.length"></span> prevented this message from being sent:</strong></p>
           <ul>
             <li data-foreach-error="message.errors.messages" data-bind="error"></li>
           </ul>
