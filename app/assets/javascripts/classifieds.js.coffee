@@ -1,6 +1,13 @@
-#= require batman_dev/batman
-#= require batman_dev/batman.jquery
-#= require batman_dev/extras/batman.rails
+# Require the version of batman in batman-rails
+#= require batman/batman
+#= require batman/batman.jquery
+#= require batman/batman.rails
+
+# If you would like to run on Batman master, make a symlink in vendor/assets/javascripts/batman_dev to your git checkout of batman,
+# and remove the slashes before the = below, and add them to the lines above which require batman from batman-rails.
+#/= require batman_dev/batman
+#/= require batman_dev/batman.jquery
+#/= require batman_dev/extras/batman.rails
 
 #= require_self
 
@@ -9,6 +16,8 @@
 #= require_tree ./helpers
 
 window.Classifieds = class Classifieds extends Batman.App
+
+  Batman.View::prefix = 'assets/views'
 
   @navLinks: [
     {href: "#!/ads?filter=all", text: "All Listings"},
