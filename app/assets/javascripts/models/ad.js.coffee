@@ -1,6 +1,7 @@
 #= require models/model
 
 class Classifieds.Ad extends Classifieds.Model
+  @resourceName: 'ad'
   @storageKey: 'ads'
   adapter = @persist Batman.RailsStorage
 
