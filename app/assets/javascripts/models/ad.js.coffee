@@ -3,7 +3,6 @@
 class Classifieds.Ad extends Classifieds.Model
   @storageKey: 'ads'
   adapter = @persist Batman.RailsStorage
-  adapter.defaultOptions.formData = true # This is needed for the input type="file" serialization. See https://github.com/Shopify/batman/issues/183
 
   # Encoders / decoders
   @encode "created_at", "updated_at", "title", "sale_type", "description", "user_id", "best_offer", "images_attributes"

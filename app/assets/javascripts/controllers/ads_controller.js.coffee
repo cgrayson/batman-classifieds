@@ -1,4 +1,5 @@
 class Classifieds.AdsController extends Batman.Controller
+  routingKey: 'ads'
   messageSendSuccess: null
   searchQueryError: false
 
