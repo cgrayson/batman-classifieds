@@ -17,7 +17,7 @@
 
 window.Classifieds = class Classifieds extends Batman.App
 
-  Batman.View::prefix = 'assets/views'
+  Batman.ViewStore.prefix = 'assets/views'
 
   @navLinks: [
     {href: "#!/ads?filter=all", text: "All Listings"},
