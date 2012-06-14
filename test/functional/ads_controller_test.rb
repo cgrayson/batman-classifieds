@@ -18,6 +18,6 @@ class AdsControllerTest < ActionController::TestCase
     ad = assigns(:ad)
     assert ad.active?
     assert_response :redirect
-    assert_redirected_to ads_url
+    assert_redirected_to ad_url(ad)
   end
 end
