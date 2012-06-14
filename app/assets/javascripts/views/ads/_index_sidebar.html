@@ -7,11 +7,10 @@
         <ul data-foreach-ad="adsByUser[currentUser.id]">
           <li class="ad">
             <p class="edit">
-              <!--<a data-bind-href="'#!/ads/' | append ad.id | append '/edit'">edit this listing</a>-->
               <a data-route="routes.ads[ad].edit">edit this listing</a>
             </p>
             <h3><a data-route="ad" data-bind="ad.title"></a></h3>
-            <p class="description" data-bind="ad.description | truncate 140"></p>
+            <p class="description" data-bind="ad.description | truncate 140 | raw"></p>
           </li>
         </ul>
       </div>
