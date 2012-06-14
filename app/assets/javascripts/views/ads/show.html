@@ -4,11 +4,11 @@
 
     <div class="price big-price">for <span data-bind="ad | displayPrice"/><span data-showif="ad.best_offer">or best offer</span></div>
 
-    <div data-bind="ad.description | simpleFormat | autolink"></div>
+    <div data-bind="ad.description | simpleFormat | autolink | raw"></div>
 
     <div class="meta">
       <span data-bind="ad.user.name"></span> posted this <span data-bind="ad.created_at | prettyDate"></span>
-      <a data-showif="currentUser.id | equals ad.user_id" data-route="ad/edit">Edit this ad</a>
+      <a data-showif="currentUser.id | equals ad.user_id" data-route="routes.ads[ad].edit">Edit this ad</a>
     </div>
 
     <ul id="images">

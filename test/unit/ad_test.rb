@@ -11,7 +11,9 @@ class AdTest < ActiveSupport::TestCase
            :price => 10.00,
            :description => description
          )
-    assert ad.save
+    ad.user = User.first
+
+    assert ad.save!
     assert_equal description, ad.description
   end
   
@@ -25,7 +27,8 @@ class AdTest < ActiveSupport::TestCase
            :price => 10.00,
            :description => description
          )
-    assert ad.save
+    ad.user = User.first
+    assert ad.save!
     assert_equal sanitized_description, ad.description
     
     ad.save
@@ -38,7 +41,9 @@ class AdTest < ActiveSupport::TestCase
            :price => 10.00,
            :description => "cute, very cute"
          )
-    assert ad.save
+    ad.user = User.first
+
+    assert ad.save!
     assert_nil ad.price
   end
   

@@ -1,6 +1,4 @@
-#= require models/model
-
-class Classifieds.Message extends Classifieds.Model
+class Classifieds.Message extends Batman.Model
   @storageKey: 'messages'
   @encode "body", "ad_id"
   @persist Batman.RailsStorage
