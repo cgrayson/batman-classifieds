@@ -9,25 +9,27 @@ gem 'delayed_job'
 gem 'state_machine'
 gem 'state_machine-audit_trail'
 gem 'paperclip'
-gem 'delayed_paperclip'
 gem 'aws-s3'
 gem 'json'
 gem 'rails_autolink'
 gem 'jquery-rails'
-gem 'batman-rails'
 #gem 'css-bootstrap-rails'
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
-                              :git => 'git://github.com/anjlab/bootstrap-rails.git'
+                              :git => 'git://github.com/anjlab/bootstrap-rails.git',
+                              :ref => 'fcf4416687882edf64fd78a4cdd0a470b56f57ea'
+
 gem 'heroku'
 
 group :assets do
   gem 'sass-rails', "  ~> 3.1.0"
   gem 'coffee-rails', "~> 3.1.0"
+  gem 'batman-rails', :git => "git://github.com/Shopify/batman-rails.git", :ref => "v0.0.7"
   gem 'uglifier'
 end
 
 group :development, :test do
   gem 'sqlite3'
+  gem 'mongrel',               '1.2.0.pre2' # Default dev env server
 end
 
 group :production do

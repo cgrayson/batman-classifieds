@@ -9,7 +9,6 @@ class Image < ActiveRecord::Base
     :storage => :s3,
     :bucket => 'classifieds-images-batman',
     :path => 'app/public/system/images/:id/:style/:filename?:updated_at'
-  #process_in_background :image
 
   def urls
     {:medium => image.url(:medium), :thumb => image.url(:thumb)}
