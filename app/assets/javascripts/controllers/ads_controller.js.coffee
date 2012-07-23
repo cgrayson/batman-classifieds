@@ -8,7 +8,7 @@ class Classifieds.AdsController extends Batman.Controller
 
   @accessor 'otherAds', ->
     userId = @get('ad.user_id')
-    Classifieds.Ad.get('loaded.indexedBy.user_id').get(userId)
+    @get('adsByUser').get(userId)
 
   index: (params) ->
     Classifieds.Ad.load (err) -> throw err if err
@@ -25,21 +25,12 @@ class Classifieds.AdsController extends Batman.Controller
     @set 'ad', Classifieds.Ad.find parseInt(params.id, 10), (err) ->
       throw err if err
     @set 'otherAd', Classifieds.Ad.get('all')
-    $('html, body').stop().animate(
-      scrollTop: 0
-    , 600,'easeInOutExpo')
 
   new: (params) ->
     @set 'ad', new Classifieds.Ad()
-    @form = @render()
 
   create: (params) =>
-    $('input', @form.get('node')).attr('disabled', true)
-    $('form', @form.get('node')).spin()
     @get('ad').save (err) =>
-      $('form', @form.get('node')).spin(false) # cancels spinner
-      $('input', @form.get('node')).attr('disabled', false)
-
       if err
         throw err unless err instanceof Batman.ErrorsSet
       else
@@ -49,15 +40,9 @@ class Classifieds.AdsController extends Batman.Controller
   edit: (params) ->
     @set 'ad', Classifieds.Ad.find parseInt(params.id, 10), (err) ->
       throw err if err
-    @form = @render()
 
   update: ->
-    $('input', @form.get('node')).attr('disabled', true)
-    $('form', @form.get('node')).spin()
     @get('ad').save (err) =>
-      $('form', @form.get('node')).spin(false) # cancels spinner
-      $('input', @form.get('node')).attr('disabled', false)
-
       if err
         throw err unless err instanceof Batman.ErrorsSet
       else

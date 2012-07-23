@@ -8,7 +8,7 @@
 
     <div class="meta">
       <span data-bind="ad.user.name"></span> posted this <span data-bind="ad.created_at | prettyDate"></span>
-      <a data-showif="currentUser.id | equals ad.user_id" data-route="routes.ads[ad].edit">Edit this ad</a>
+      <a data-showif="adOwnedByCurrentUser" data-route="routes.ads[ad].edit">Edit this ad</a>
     </div>
 
     <ul id="images">
@@ -16,7 +16,7 @@
       <li data-hideif="ad.images.length" class="polaroid"><img src="http://placekitten.com/g/140/140"></li>
     </ul>
 
-    <div id="contact-form" class="well" data-hideif="currentUser.id | equals ad.user_id">
+    <div id="contact-form" class="well" data-hideif="adOwnedByCurrentUser">
       <h2>Are you interested in this?</h2>
       <form data-formfor-message="ad.message" data-event-submit="sendMessage">
         <div class="alert-message success" data-showif="messageSendSuccess.length" data-bind="messageSendSuccess" data-mixin="animation"></div>
@@ -31,9 +31,7 @@
         <div class="actions">
           <input class="btn primary" name="commit" type="submit" value="Contact Seller">
         </div>
-
     </div>
-
 
     <div data-showif="otherAds.length">
       <h2>Others ads by this person</h2>
@@ -50,7 +48,7 @@
   <div id="sidebar" class="span6">
     <div data-partial="ads/_sidebar_create"></div>
 
-    <div data-showif="ad.user | equals currentUser" class="highlight-box">
+    <div data-showif="adOwnedByCurrentUser" class="highlight-box">
       <h3>This is your listing</h3>
       <p class="description">You should update it if it has sold or if you changed your mind and don't want to sell this item anymore.</p>
       <p><a data-route="ads.close" class="btn danger primary">My item is no longer available</a></p>
