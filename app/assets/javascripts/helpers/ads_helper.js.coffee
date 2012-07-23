@@ -12,7 +12,7 @@ Batman.mixin Batman.Filters,
   simpleFormat: (text) ->
     return undefined if typeof text is 'undefined'
     text = text.replace(/(\n\n+)|(\r\r+)|(\r\n(\r\n)+)/g, "</p>\n\n<p>")  # 2+ newline  -> paragraph
-    text = text.replace(/([^\n]\n)(?=[^\n])/g, '\1<br />') # 1 newline   -> br
+    text = text.replace(/([^\n]\n)(?=[^\n])/g, "\\1<br />") # 1 newline   -> br
     text = "<p>#{text}</p>"
     text
 
