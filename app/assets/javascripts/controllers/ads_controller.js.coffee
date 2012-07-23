@@ -43,8 +43,8 @@ class Classifieds.AdsController extends Batman.Controller
       if err
         throw err unless err instanceof Batman.ErrorsSet
       else
-        Classifieds.flashSuccess "Ad #{@get('ad.title')} created successfully!"
-        @redirect '/ads'
+        Classifieds.set "flash.success", "Ad #{@get('ad.title')} created successfully!"
+        @redirect Classifieds.get('routes.ads.path')
 
   edit: (params) ->
     @set 'ad', Classifieds.Ad.find parseInt(params.id, 10), (err) ->
@@ -61,8 +61,8 @@ class Classifieds.AdsController extends Batman.Controller
       if err
         throw err unless err instanceof Batman.ErrorsSet
       else
-        Classifieds.flashSuccess "Ad #{@get('ad.title')} updated successfully!"
-        @redirect '/ads'
+        Classifieds.set "flash.success", "Ad #{@get('ad.title')} updated successfully!"
+        #@redirect Classifieds.get('routes.ads.path')
 
   submitSearch: (form) =>
     @redirect "/search?q=#{@get('searchQuery')}"

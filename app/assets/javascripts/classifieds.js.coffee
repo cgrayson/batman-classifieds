@@ -14,6 +14,7 @@
 #= require_tree ./models
 #= require_tree ./controllers
 #= require_tree ./helpers
+#= require_tree ./views
 
 window.Classifieds = class Classifieds extends Batman.App
 
@@ -28,7 +29,7 @@ window.Classifieds = class Classifieds extends Batman.App
 
   @resources 'ads'
   @root 'ads#index'
-  @route '/search', 'ads#search', resource: 'ads', action: 'search'
+  @route '/search', 'ads#search'
 
   @on 'run', ->
     user = new Classifieds.User()
@@ -39,16 +40,4 @@ window.Classifieds = class Classifieds extends Batman.App
   @on 'ready', ->
     console.log "Classifieds ready for use."
 
-  @flash: Batman()
-  @flash.accessor
-    get: (k) -> @[k]
-    set: (k, v) ->
-      @[k] = v
-      if v isnt ''
-        setTimeout =>
-          @set(k, '')
-        , 2000
-      v
-
-  @flashSuccess: (message) -> @set 'flash.success', message
-  @flashError: (message) ->  @set 'flash.error', message
+  @classAccessor 'flash', -> new Classifieds.Flash

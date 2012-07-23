@@ -24,7 +24,7 @@
 
         <h1><a href="/"><%= image_tag 'logo.png' %></a></h1>
         <ul>
-          <li data-foreach-nav="window.Classifieds.navLinks">
+          <li data-foreach-nav="window.navLinks">
             <a data-bind-href="nav.href" data-bind="nav.text"></a>
           </li>
         </ul>
@@ -33,8 +33,8 @@
   </div>
 
   <div id="main" class="container">
-    <p data-showif="Classifieds.flash.success.length" id="flashnotice" class="alert-message success"><a class="close" href="#" onclick="$('#flashnotice').hide(); return false">×</a><span data-bind="Classifieds.flash.success"></span></p>
-    <p data-showif="Classifieds.flash.error.length" id="flashwarning" class="alert-message error"><a class="close" href="#" onclick="$('#flashwarning').hide(); return false">×</a><span data-bind="Classifieds.flash.error"></span></p>
+    <p data-showif="flash.success" id="flashnotice" class="alert-message success"><a class="close" data-event-click="flash.hideSuccess">×</a><span data-bind="flash.success"></span></p>
+    <p data-showif="flash.error" id="flashwarning" class="alert-message error"><a class="close" data-event-click="flash.hideError">×</a><span data-bind="flash.error"></span></p>
     <div data-yield="main"></div>
     <footer>
       <p>&copy; Shopify <%= Time.now.year %></p>
