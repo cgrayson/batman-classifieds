@@ -58,7 +58,7 @@ class Classifieds.AdsController extends Batman.Controller
       @set 'searchQuery', params.q
       @set 'searchAds', null
 
-      Classifieds.Ad.load {url: "/ads/search.json?q=#{params.q}"}, (error, records) =>
+      Classifieds.Ad.search params.q, (error, records) =>
         throw error if error
         @set 'searchAds', records
     else

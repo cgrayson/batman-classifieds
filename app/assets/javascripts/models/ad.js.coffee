@@ -45,3 +45,12 @@ class Classifieds.Ad extends Batman.Model
       v = if typeof v is 'string' then parseFloat(v) else v
       Batman.Model.defaultAccessor.set.call @, k, v
   buildMessage: -> new Classifieds.Message(ad_id: @get('id'))
+
+  search: (query) ->
+    @request 'search', {data: {q: query}}, (err, responseJSON) ->
+      unless err
+        records = for blob in responseJSON['ads']
+          record = new Classifieds.Ad
+          record.fromJSON(blob)
+          record
+      callback(err, records)
