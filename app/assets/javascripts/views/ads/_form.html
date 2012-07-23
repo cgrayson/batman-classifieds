@@ -2,7 +2,7 @@
   <legend><span data-showif="ad.isNew">Post a new classified ad</span><span data-hideif="ad.isNew">Edit your ad</span></legend>
 
   <div id="error-explanation" class="alert-message block-message error" data-showif="ad.errors.length">
-    <p><strong><span data-bind="ad.errors.length"></span> <span data-bind="'error' | pluralize ad.errors.length"></span> prevented this add from being created:</strong></p>
+    <p><strong><span data-bind="'error' | pluralize ad.errors.length"></span> prevented this add from being created:</strong></p>
     <ul>
       <li data-foreach-error="ad.errors" data-bind="error.message"></li>
     </ul>
