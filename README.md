@@ -14,7 +14,7 @@ This is a elementary but not trivial Rails 3.1 app. To run it locally, you need 
     cd batman-classifieds
     bundle install
     bundle exec rake db:setup
-  <optional (test data)> bundle exec demo:reset
+    bundle exec demo:reset # optional (test data)
     bundle exec rails server
 
 ## About  ##
