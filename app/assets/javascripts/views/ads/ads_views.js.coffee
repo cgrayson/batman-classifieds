@@ -1,6 +1,6 @@
 class Classifieds.AdsShowView extends Batman.View
   @accessor 'adOwnedByCurrentUser', ->
-    @get('context.ad.user') == @get('context.currentUser')
+    @get('context.ad.user.id') == @get('context.currentUser.id')
 
   @::on 'appear', ->
     $('html, body')
